@@ -1,19 +1,19 @@
 Summary:	Accessibility Toolkit
 Name:		atk
-Version:	2.6.0
+Version:	2.8.0
 Release:	1
 Epoch:		1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/atk/2.6/%{name}-%{version}.tar.xz
-# Source0-md5:	6b34e2a63dda4429b5692be7ca3aa5bf
+Source0:	http://ftp.gnome.org/pub/gnome/sources/atk/2.8/%{name}-%{version}.tar.xz
+# Source0-md5:	c652bd25530825d604dae1c1ebd2da02
 URL:		http://developer.gnome.org/projects/gap/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	diffutils
 BuildRequires:	gettext-devel
-BuildRequires:	glib-devel
-BuildRequires:	gobject-introspection-devel
+BuildRequires:	glib-devel >= 1:2.36.0
+BuildRequires:	gobject-introspection-devel >= 1.36.0
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkg-config
@@ -44,6 +44,13 @@ ATK API documentation.
 
 %prep
 %setup -q
+
+# kill gnome common deps
+%{__sed} -i -e 's/GNOME_COMPILE_WARNINGS.*//g'	\
+    -i -e 's/GNOME_MAINTAINER_MODE_DEFINES//g'	\
+    -i -e 's/GNOME_COMMON_INIT//g'		\
+    -i -e 's/GNOME_CXX_WARNINGS.*//g'		\
+    -i -e 's/GNOME_DEBUG_CHECK//g' configure.ac
 
 %build
 %{__libtoolize}

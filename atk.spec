@@ -1,19 +1,19 @@
 Summary:	Accessibility Toolkit
 Name:		atk
-Version:	2.10.0
+Version:	2.12.0
 Release:	1
 Epoch:		1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/atk/2.10/%{name}-%{version}.tar.xz
-# Source0-md5:	e77833d4445ebe6842e9f9a0667b0be7
+Source0:	http://ftp.gnome.org/pub/gnome/sources/atk/2.12/%{name}-%{version}.tar.xz
+# Source0-md5:	930238dec55fdbf8eda9975b44f07b76
 URL:		http://developer.gnome.org/projects/gap/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	diffutils
 BuildRequires:	gettext-devel
-BuildRequires:	glib-devel >= 1:2.38.0
-BuildRequires:	gobject-introspection-devel >= 1.38.0
+BuildRequires:	glib-devel >= 1:2.40.0
+BuildRequires:	gobject-introspection-devel >= 1.40.0
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkg-config
@@ -72,7 +72,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{as,be@latin,tk,ug,ps,ca@valencia,en@shaw}
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{as,be@latin,tk,ug,ps,ca@valencia,en@shaw}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang atk10
 

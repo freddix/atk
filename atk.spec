@@ -1,19 +1,19 @@
 Summary:	Accessibility Toolkit
 Name:		atk
-Version:	2.12.0
+Version:	2.14.0
 Release:	1
 Epoch:		1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/atk/2.12/%{name}-%{version}.tar.xz
-# Source0-md5:	930238dec55fdbf8eda9975b44f07b76
+Source0:	http://ftp.gnome.org/pub/gnome/sources/atk/2.14/%{name}-%{version}.tar.xz
+# Source0-md5:	ecb7ca8469a5650581b1227d78051b8b
 URL:		http://developer.gnome.org/projects/gap/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	diffutils
 BuildRequires:	gettext-devel
-BuildRequires:	glib-devel >= 1:2.40.0
-BuildRequires:	gobject-introspection-devel >= 1.40.0
+BuildRequires:	glib-devel >= 1:2.42.0
+BuildRequires:	gobject-introspection-devel >= 1.42.0
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkg-config
